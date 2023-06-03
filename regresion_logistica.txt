@@ -25,4 +25,9 @@ equivalencias = {
 
 data.replace({"Divorcio": equivalencias}, inplace=True)
 
+# Dividir los datos en características (X) y etiquetas (y)
+X = data.drop("Divorcio", axis=1)
+y = data["Divorcio"]
+
+
 
