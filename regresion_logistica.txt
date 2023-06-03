@@ -1,0 +1,16 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+# Cargar los datos desde el archivo CSV
+data = pd.read_csv("divorcios.csv", delimiter="\t")
+
+# Imprimir el encabezado del archivo CSV
+print(data.columns)
+
+# Dividir la columna en columnas separadas
+data[['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Divorcio']] = data['Q1\tQ2\tQ3\tQ4\tQ5\tDivorcio'].str.split('\t', expand=True)
+
+# Eliminar la columna original
+data.drop('Q1\tQ2\tQ3\tQ4\tQ5\tDivorcio', axis=1, inplace=True)
+
+
