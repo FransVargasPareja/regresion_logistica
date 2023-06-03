@@ -14,3 +14,15 @@ data[['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Divorcio']] = data['Q1\tQ2\tQ3\tQ4\tQ5\tDiv
 data.drop('Q1\tQ2\tQ3\tQ4\tQ5\tDivorcio', axis=1, inplace=True)
 
 
+# Convertir las respuestas a valores numéricos según la tabla de equivalencias
+equivalencias = {
+    'En desacuerdo totalmente': 1,
+    'En desacuerdo': 2,
+    'Irrelevante': 3,
+    'De acuerdo': 4,
+    'De acuerdo totalmente': 5
+}
+
+data.replace({"Divorcio": equivalencias}, inplace=True)
+
+
